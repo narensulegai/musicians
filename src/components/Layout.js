@@ -22,7 +22,7 @@ const Layout = ({children}) => {
                 <div className="profNav">
                     {!isLoading && isAuthenticated && <>
                         <img className="profile" title={user.name} src={user.picture} alt={user.name}/>
-                        <div className="button" onClick={() => logout({returnTo: window.location.origin})}>Log Out</div>
+                        <div className="button" onClick={() => logout({returnTo: window.location.href})}>Log Out</div>
                     </>}
                     {!isLoading && !isAuthenticated && <>
                         {!isAuthenticated && <div className="button"
