@@ -1,29 +1,40 @@
 import React, {useState} from 'react';
 import TextField from '@material-ui/core/TextField';
+import {useAuth0} from "@auth0/auth0-react";
 
 const ContactUs = props => {
 
     const [message, setMessage] = useState("");
+    const [instrument, setInstrument] = useState("");
+    const {user, isAuthenticated} = useAuth0();
+
+    const handleInstrumentChange = (e) => {
+        setInstrument(e.target.value);
+    }
 
     const handleMessageChange = (e) => {
         setMessage(e.target.value);
     }
-
+    const handleSend = async () => {
+        const data = {instrument, message, user};
+        const res = await fetch("http://localhost:3001/contactRequest", {
+            method: "POST",
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify(data)
+        });
+        console.log(await res.json());
+    }
     return (
         <div>
             <h2>Contact Us</h2>
             <div className="small-margin-top">
                 <TextField
-                    label="Student name"
+                    label="Instrument"
                     margin="normal"
                     variant="outlined"
-                    fullWidth="true"
-                />
-                <TextField
-                    label="Email"
-                    margin="normal"
-                    variant="outlined"
-                    fullWidth="true"
+                    fullWidth={true}
+                    value={instrument}
+                    onChange={handleInstrumentChange}
                 />
             </div>
 
@@ -35,11 +46,13 @@ const ContactUs = props => {
                     value={message}
                     onChange={handleMessageChange}
                     variant="outlined"
-                    fullWidth="true"
+                    fullWidth={true}
                 />
             </div>
             <div className="small-margin-top center">
-                <div className="button">Send</div>
+                {isAuthenticated
+                    ? <div className="button" onClick={handleSend}>Send</div>
+                    : <div><b>Please login to send this message</b></div>}
             </div>
         </div>
     );

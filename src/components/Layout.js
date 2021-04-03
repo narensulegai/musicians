@@ -38,7 +38,7 @@ const Layout = ({children}) => {
                 {children}
             </div>
 
-            <div className="footer">
+            <div className="footer small-margin-top">
                 <div>Mail us to 1166 Quail Creek Circle, San Jose CA 95120</div>
                 <div className="small-margin-left">
                     |  &nbsp;Contact us at
