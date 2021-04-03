@@ -138,3 +138,16 @@ iframe {
 .center {
     text-align: center;
 }
+
+.photo-grid {
+    display: grid;
+    grid-template-columns: auto auto auto;
+    grid-template-rows: 200px;
+    grid-row-gap: 20px;
+
+}
+
+.photo-grid img {
+    margin: auto;
+    max-height: 200px;
+}

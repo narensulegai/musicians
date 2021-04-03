@@ -7,7 +7,7 @@ const Home = props => {
 
     useEffect(() => {
         (async function () {
-            const res = await fetch("http://localhost:3001/contactRequest", {
+            const res = await fetch(`${process.env.REACT_APP_API}/contactRequest`, {
                 method: "GET",
                 headers: {'Content-Type': 'application/json'},
             });
@@ -17,13 +17,14 @@ const Home = props => {
     return (
         <div>
             <h2>Requests from users</h2>
+            {requests.length === 0 && <div>No requests yet</div>}
             <div className="small-margin-top">
                 <TableContainer component={Paper}>
                     <Table>
                         <TableBody>
                             {requests.map((row) => (
                                 <TableRow key={row._id}>
-                                    <TableCell component="th" scope="row">{row.name}</TableCell>
+                                    <TableCell component="th" scope="row">{row.user.name}</TableCell>
                                     <TableCell align="right">{row.instrument}</TableCell>
                                     <TableCell align="right">{row.message}</TableCell>
                                 </TableRow>

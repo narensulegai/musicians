@@ -17,12 +17,14 @@ const ContactUs = props => {
     }
     const handleSend = async () => {
         const data = {instrument, message, user};
-        const res = await fetch("http://localhost:3001/contactRequest", {
+        await fetch(`${process.env.REACT_APP_API}/contactRequest`, {
             method: "POST",
             headers: {'Content-Type': 'application/json'},
             body: JSON.stringify(data)
         });
-        console.log(await res.json());
+        alert(`Thank you ${user.name}, we will reach out to you soon!`);
+        setMessage("");
+        setInstrument("");
     }
     return (
         <div>

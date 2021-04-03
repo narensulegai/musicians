@@ -1,9 +1,12 @@
 import React from 'react';
+import PhotoGrid from "./PhotoGrid";
 
 const PhotoGallery = props => {
+
+
     return (
         <div>
-            PhotoGallery
+            <PhotoGrid/>
         </div>
     );
 };
