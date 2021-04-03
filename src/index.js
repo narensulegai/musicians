@@ -5,13 +5,15 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import {Auth0Provider} from "@auth0/auth0-react";
 
+const domain = "cbf.auth0.com";
 ReactDOM.render(
     <React.StrictMode>
         <Auth0Provider
-            domain="cbf.auth0.com"
+            domain={domain}
             clientId="tgnBPUcKrWSRBs2P5SFLfo104gRWmuNO"
             redirectUri={window.location.origin}
-        >
+            audience={`https://${domain}/api/v2/`}
+            scope="read:current_user">
             <App/>
         </Auth0Provider>
     </React.StrictMode>,

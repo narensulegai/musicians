@@ -1,20 +1,50 @@
-import './App.css';
-import LoginButton from "./components/LoginButton";
-import Profile from "./components/Profile";
-import LogoutButton from "./components/LogoutButton";
+import React from "react";
+import {
+    HashRouter as Router,
+    Switch,
+    Route,
+} from "react-router-dom";
+import Layout from "./components/Layout";
+import "./App.css";
+import Home from "./components/Home";
+import Whoarewe from "./components/Whoarewe";
+import MonthlyNewsLetter from "./components/MonthlyNewsLetter";
+import Events from "./components/Events";
+import PhotoGallery from "./components/PhotoGallery";
+import Donate from "./components/Donate";
+import ContactUs from "./components/ContactUs";
 
-function App() {
+export default function App() {
     return (
-        <div>
-            <div>
-                <LoginButton/>
-                <LogoutButton/>
-            </div>
-            <div>
-                <Profile/>
-            </div>
-        </div>
+        <Router>
+            <Layout>
+                <Switch>
+                    <Route exact path="/">
+                        <Home/>
+                    </Route>
+                    <Route path="/home">
+                        <Home/>
+                    </Route>
+                    <Route path="/whoarewe">
+                        <Whoarewe/>
+                    </Route>
+                    <Route path="/monthlynewsletter">
+                        <MonthlyNewsLetter/>
+                    </Route>
+                    <Route path="/events">
+                        <Events/>
+                    </Route>
+                    <Route path="/photogallery">
+                        <PhotoGallery/>
+                    </Route>
+                    <Route path="/donate">
+                        <Donate/>
+                    </Route>
+                    <Route path="/contactus">
+                        <ContactUs/>
+                    </Route>
+                </Switch>
+            </Layout>
+        </Router>
     );
 }
-
-export default App;
