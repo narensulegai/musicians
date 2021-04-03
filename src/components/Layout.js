@@ -1,13 +1,10 @@
 import React from 'react';
-import LoginButton from "./LoginButton";
-import LogoutButton from "./LogoutButton";
-import SignupButton from "./SignupButton";
 import {useAuth0} from "@auth0/auth0-react";
 import {Link} from "react-router-dom";
 
 const Layout = ({children}) => {
 
-    const {user, isAuthenticated, isLoading} = useAuth0();
+    const {user, isAuthenticated, isLoading, loginWithRedirect, logout} = useAuth0();
 
     return (
         <div className="container">
@@ -25,11 +22,13 @@ const Layout = ({children}) => {
                 <div className="profNav">
                     {!isLoading && isAuthenticated && <>
                         <img className="profile" title={user.name} src={user.picture} alt={user.name}/>
-                        <LogoutButton/>
+                        <div className="button" onClick={() => logout({returnTo: window.location.origin})}>Log Out</div>
                     </>}
                     {!isLoading && !isAuthenticated && <>
-                        {!isAuthenticated && <LoginButton/>}
-                        {!isAuthenticated && <SignupButton/>}
+                        {!isAuthenticated && <div className="button"
+                                                  onClick={() => loginWithRedirect({redirectUri: window.location.href})}>
+                            Log In
+                        </div>}
                     </>}
                 </div>
             </div>
