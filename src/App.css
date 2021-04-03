@@ -30,6 +30,14 @@ body {
     font-family: Roboto Mono, Serif;
 }
 
+h2, h4, .roboto {
+    font-family: Roboto Mono, Serif;
+}
+
+.small {
+    font-size: smaller;
+}
+
 .small-margin-left {
     margin-left: 10px;
 }
