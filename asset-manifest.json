@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/musicians/static/css/main.41bcd2e1.chunk.css",
+    "main.js": "/musicians/static/js/main.fbbe650f.chunk.js",
+    "main.js.map": "/musicians/static/js/main.fbbe650f.chunk.js.map",
+    "runtime-main.js": "/musicians/static/js/runtime-main.8e04489f.js",
+    "runtime-main.js.map": "/musicians/static/js/runtime-main.8e04489f.js.map",
+    "static/js/2.6b5016d8.chunk.js": "/musicians/static/js/2.6b5016d8.chunk.js",
+    "static/js/2.6b5016d8.chunk.js.map": "/musicians/static/js/2.6b5016d8.chunk.js.map",
+    "static/js/3.8633f49a.chunk.js": "/musicians/static/js/3.8633f49a.chunk.js",
+    "static/js/3.8633f49a.chunk.js.map": "/musicians/static/js/3.8633f49a.chunk.js.map",
+    "index.html": "/musicians/index.html",
+    "static/css/main.41bcd2e1.chunk.css.map": "/musicians/static/css/main.41bcd2e1.chunk.css.map",
+    "static/js/2.6b5016d8.chunk.js.LICENSE.txt": "/musicians/static/js/2.6b5016d8.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.8e04489f.js",
+    "static/js/2.6b5016d8.chunk.js",
+    "static/css/main.41bcd2e1.chunk.css",
+    "static/js/main.fbbe650f.chunk.js"
+  ]
+}
