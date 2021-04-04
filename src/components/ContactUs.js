@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
 import TextField from '@material-ui/core/TextField';
 import {useAuth0} from "@auth0/auth0-react";
+import {CardContent, Typography} from "@material-ui/core";
 
 const ContactUs = props => {
 
@@ -17,18 +18,20 @@ const ContactUs = props => {
     }
     const handleSend = async () => {
         const data = {instrument, message, user};
-        await fetch(`${process.env.REACT_APP_API}/contactRequest`, {
-            method: "POST",
-            headers: {'Content-Type': 'application/json'},
-            body: JSON.stringify(data)
-        });
+        // await fetch(`${process.env.REACT_APP_API}/contactRequest`, {
+        //     method: "POST",
+        //     headers: {'Content-Type': 'application/json'},
+        //     body: JSON.stringify(data)
+        // });
         alert(`Thank you ${user.name}, we will reach out to you soon!`);
         setMessage("");
         setInstrument("");
     }
     return (
         <div>
-            <h2>Contact Us</h2>
+            <Typography variant="h6" component="h6">
+                Contact us
+            </Typography>
             <div className="small-margin-top">
                 <TextField
                     label="Instrument"
@@ -54,7 +57,9 @@ const ContactUs = props => {
             <div className="small-margin-top center">
                 {isAuthenticated
                     ? <div className="button" onClick={handleSend}>Send</div>
-                    : <div><b>Please login to send this message</b></div>}
+                    : <Typography variant="h6" component="h6">
+                        Please log in to send us a message
+                    </Typography>}
             </div>
         </div>
     );

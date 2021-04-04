@@ -1,4 +1,5 @@
 import React from 'react';
+import {Card, CardActionArea, CardContent, CardMedia, Typography} from "@material-ui/core";
 
 const Events = props => {
 
@@ -20,13 +21,17 @@ const Events = props => {
     return (
         <div className="event">
             {events.map(e => {
-                return <div className="event-block">
+                return <Card>
                     <div>
                         <iframe
                             src={`https://www.youtube.com/embed/${e.id}?autoplay=0&mute=1&wmode=opaque&frameborder=0`}/>
                     </div>
-                    <div className="event-title">{e.title}</div>
-                </div>
+                    <CardContent>
+                        <Typography component="h6" variant="h6">
+                            {e.title}
+                        </Typography>
+                    </CardContent>
+                </Card>
             })}
 
         </div>
